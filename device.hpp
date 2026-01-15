@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 
 enum class DeviceStatus {
@@ -10,13 +11,15 @@ enum class DeviceStatus {
 class Device
 {
 private:
-    static int id;
+    int id;
+    static int nextId;
     std::string name;
     DeviceStatus status;
 
 public:
+    Device();
     Device(std::string name);
-    int getId();
+    int getId() const;
     std::string getName() const;
     DeviceStatus getStatus();
     void changeStatus(DeviceStatus status);

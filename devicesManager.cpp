@@ -1,18 +1,30 @@
 #include "devicesManager.hpp"
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
-devicesManager::devicesManager()
+devicesManager::devicesManager():
+    devicesList(0)
 {
-    std::vector<Device> devicesList;
 }
 
 void devicesManager::addDevice(const Device& device) 
 {
-    devicesList.push_back(device);
+    std::cout << "Adding device: " << device.getName() << " ID: " << device.getId() << std::endl;    
+    devicesList.push_back(std::make_unique<Device>(device));
 }
 
-void removeDevice(int deviceId)
+void devicesManager::removeDevice(int deviceId)
 {
-    
+    for (const auto &device : devicesList)
+    {
+        if (device->getId() == deviceId)
+        {
+            std::cout << "Removing device: " << device->getName() << " ID: " << device->getId() << std::endl;
+            // devicesList.erase(std::find(devicesList.begin(), devicesList.end(), device));
+            break;
+        }
+    }    
 }
 
 devicesManager::~devicesManager()

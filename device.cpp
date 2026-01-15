@@ -1,20 +1,24 @@
 #include <iostream>
 #include "device.hpp"
 
-int Device::id = 0;
+int Device::nextId = 0;
 Device::Device(std::string name): 
     name(name),
     status(DeviceStatus::INACTIVE)
 {
-    id++;
+    id = nextId++;
+    std::cout << "----------------------------------" << std::endl;
+    std::cout << "Creating device: " << name << std::endl;
+    std::cout << "Initial status: " << (int)status << std::endl;
+    std::cout << "Assigned ID: " << id << std::endl;
+    std::cout << "----------------------------------" <<  std::endl;
 }
 
 Device::~Device()
 {
-    id--;
 }
 
-int Device::getId()
+int Device::getId() const
 {
     return id;
 }

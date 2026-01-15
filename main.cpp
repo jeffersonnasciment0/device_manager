@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "device.hpp"
+#include "devicesManager.hpp"
 
 using namespace std;
 
@@ -8,9 +9,12 @@ int main(){
     cout << "Teste\n";
 
     Device disp1("tv");
-    cout << "Id do dispositivo " << disp1.getName() << " criado: " << disp1.getId() << endl;
-    cout << "Status do dispositivo " << disp1.getName() << " criado: " << (int)disp1.getStatus() << endl;
-    disp1.changeStatus(DeviceStatus::ACTIVE);
-    cout << "Status do dispositivo " << disp1.getName() << " criado: " << (int)disp1.getStatus() << endl;
+
+    Device disp2("radio");
+
+    devicesManager manager;
+    manager.addDevice(disp1);
+    manager.addDevice(disp2);
+
     return 0;
 }

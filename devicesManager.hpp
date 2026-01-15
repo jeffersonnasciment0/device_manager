@@ -1,11 +1,13 @@
+#pragma once
 #include <iostream>
 #include <vector>
+#include <memory>
 #include "device.hpp"
 
 class devicesManager
 {
 private:
-    std::vector<Device> devicesList;
+    std::vector<std::unique_ptr<Device>> devicesList;
 public:
     devicesManager();
     ~devicesManager();

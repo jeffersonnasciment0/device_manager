@@ -7,15 +7,16 @@
 class devicesManager
 {
 private:
-    std::vector<std::unique_ptr<Device>> devicesList;
+    std::vector<Device*> devicesList;
 public:
     devicesManager();
     ~devicesManager();
 
-    void addDevice(const Device& device);
+    void addDevice(Device& device);
     void removeDevice(int deviceId);
     Device* getDevice(int deviceId);
     std::string listDevices();
+    std::string listDevicesStatus(const DeviceStatus status);
 };
 
 

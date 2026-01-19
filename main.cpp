@@ -3,10 +3,8 @@
 #include "device.hpp"
 #include "devicesManager.hpp"
 
-using namespace std;
 
 int main(){
-    cout << "Teste\n";
 
     Device disp1("tv");
     Device disp2("radio");
@@ -15,7 +13,7 @@ int main(){
     Device disp5("monitor");
 
     
-    devicesManager manager;
+    DevicesManager manager;
     manager.addDevice(disp1);
     manager.addDevice(disp2);
     manager.addDevice(disp3);
@@ -26,11 +24,11 @@ int main(){
     disp4.changeStatus(DeviceStatus::MAINTENANCE);
     disp5.changeStatus(DeviceStatus::ACTIVE);
 
-    cout << manager.listDevicesStatus(DeviceStatus::MAINTENANCE);
+    std::cout << manager.listDevicesStatus(DeviceStatus::ACTIVE);
 
     manager.removeDevice(disp3.getId());
 
-    cout << manager.listDevices();
+    std::cout << manager.listDevices();
 
     return 0;
 }

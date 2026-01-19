@@ -4,19 +4,19 @@
 #include <memory>
 #include "device.hpp"
 
-class devicesManager
+class DevicesManager
 {
 private:
     std::vector<Device*> devicesList;
 public:
-    devicesManager();
-    ~devicesManager();
+    DevicesManager();
+    ~DevicesManager();
 
     void addDevice(Device& device);
     void removeDevice(int deviceId);
-    Device* getDevice(int deviceId);
+    Device* getDevice(int deviceId) const;
     std::string listDevices();
-    std::string listDevicesStatus(const DeviceStatus status);
+    std::string listDevicesStatus(DeviceStatus status) const;
 };
 
 

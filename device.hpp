@@ -21,7 +21,7 @@ public:
     Device(std::string name);
     int getId() const;
     std::string getName() const;
-    DeviceStatus getStatus();
+    DeviceStatus getStatus() const;
     void changeStatus(DeviceStatus status);
     virtual ~Device();
 };

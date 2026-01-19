@@ -28,7 +28,7 @@ std::string Device::getName() const
     return name;
 }
 
-DeviceStatus Device::getStatus()
+DeviceStatus Device::getStatus() const
 {
     return status;
 }
